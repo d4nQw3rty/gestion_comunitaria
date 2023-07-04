@@ -1,10 +1,26 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @head %>
+<h1 class='login-h1 red-border-b'>Hogar de <%= @head.name%> <%= @head.sur_name%></h1>
 
-<div>
-  <%= link_to "Edit this head", edit_head_path(@head) %> |
-  <%= link_to "Back to heads", heads_path %>
-
-  <%= button_to "Destroy this head", @head, method: :delete %>
+<div id="members">
+  <table class="table table-striped ">
+  <thead>
+    <tr>      
+      <th scope="col">Cedula</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Parentesco</th>
+      <th scope="col">Editar</th>      
+      <th scope="col">Eliminar</th>
+    </tr>
+  </thead>
+    <tbody>
+      <% @members.each do |member| %>
+        <%= render member %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<div> 
+  <%= link_to "Regresar", heads_path %>  |  
+  <%= link_to "Nuevo Integrante", new_member_path(head_id: @head.id) %> 
 </div>

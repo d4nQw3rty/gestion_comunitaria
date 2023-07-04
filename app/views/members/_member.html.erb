@@ -1,32 +1,23 @@
-<div id="<%= dom_id member %>">
-  <p>
-    <strong>Cedula:</strong>
+<tr id="<%= dom_id member %>">
+
+  <td>  
     <%= member.cedula %>
-  </p>
+  </td>
 
-  <p>
-    <strong>Name:</strong>
-    <%= member.name %>
-  </p>
+  <td>
+    <%= member.name %> <%= member.sur_name %>
+  </td>
 
-  <p>
-    <strong>Sur name:</strong>
-    <%= member.sur_name %>
-  </p>
+  <td>
+    <%= member.relationship %> 
+  </td>
 
-  <p>
-    <strong>Birthdate:</strong>
-    <%= member.birthdate %>
-  </p>
 
-  <p>
-    <strong>Relationship:</strong>
-    <%= member.relationship %>
-  </p>
+  <td>
+    <%= link_to "Editar", edit_member_path(member,head_id: member.head) %>
+  </td> 
 
-  <p>
-    <strong>Head:</strong>
-    <%= member.head_id %>
-  </p>
-
-</div>
+  <td>
+    <%= button_to "Eliminar", member, method: :delete %>
+  </td>
+</tr>

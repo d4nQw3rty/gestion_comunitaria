@@ -1,27 +1,20 @@
-<div id="<%= dom_id head %>">
-  <p>
-    <strong>Cedula:</strong>
+<tr id="<%= dom_id head %>"> 
+  <td>
     <%= head.cedula %>
-  </p>
+  </td>
 
-  <p>
-    <strong>Name:</strong>
-    <%= head.name %>
-  </p>
+  <td>
+    <%= head.name %> <%= head.sur_name %>
+  </td>
+  <td>
+    <%= link_to "Editar", edit_head_path(head) %>
+  </td>
 
-  <p>
-    <strong>Sur name:</strong>
-    <%= head.sur_name %>
-  </p>
+  <td>
+  <%= link_to "Ver", head %>
+  </td>
 
-  <p>
-    <strong>Birthdate:</strong>
-    <%= head.birthdate %>
-  </p>
-
-  <p>
-    <strong>User:</strong>
-    <%= head.user_id %>
-  </p>
-
-</div>
+  <td>
+  <%= button_to "Eliminar", head, method: :delete, class: "btn btn-danger" %>
+  </td>  
+</tr>

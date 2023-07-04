@@ -1,13 +1,23 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Heads</h1>
+<h1 class='text-center'>Jefes de Hogar</h1>
 
 <div id="heads">
-  <% @heads.each do |head| %>
-    <%= render head %>
-    <p>
-      <%= link_to "Show this head", head %>
-    </p>
-  <% end %>
+<table class="table table-striped ">
+  <thead>
+    <tr>      
+      <th scope="col">Cedula</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Editar</th>
+      <th scope="col">Hogar</th>
+      <th scope="col">Eliminar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @heads.each do |head| %>
+      <%= render head %>   
+    <% end %>
+  </tbody>
+</table>
 </div>
-<%= link_to "New head", new_head_path %>
+<%= link_to "Nuevo Jefe de hogar", new_head_path %>

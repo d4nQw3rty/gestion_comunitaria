@@ -3,11 +3,13 @@ class HeadsController < ApplicationController
 
   # GET /heads or /heads.json
   def index
-    @heads = Head.all
+    @heads = Head.includes(:user).where(user_id: current_user.id)
   end
 
   # GET /heads/1 or /heads/1.json
   def show
+    @heads = Head.includes(:user).where(user_id: current_user.id)
+    @members = Member.includes(:head).where(head_id: @head.id)  
   end
 
   # GET /heads/new
@@ -25,8 +27,8 @@ class HeadsController < ApplicationController
 
     respond_to do |format|
       if @head.save
-        format.html { redirect_to head_url(@head), notice: "Head was successfully created." }
-        format.json { render :show, status: :created, location: @head }
+        format.html { redirect_to heads_url, notice: "Jefe de Hogar Creado." }
+        format.json { render :index, status: :created, location: @head }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @head.errors, status: :unprocessable_entity }
@@ -38,8 +40,8 @@ class HeadsController < ApplicationController
   def update
     respond_to do |format|
       if @head.update(head_params)
-        format.html { redirect_to head_url(@head), notice: "Head was successfully updated." }
-        format.json { render :show, status: :ok, location: @head }
+        format.html { redirect_to heads_url, notice: "Jefe de Hogar Actulizado." }
+        format.json { render :index, status: :ok, location: @head }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @head.errors, status: :unprocessable_entity }
@@ -52,7 +54,7 @@ class HeadsController < ApplicationController
     @head.destroy
 
     respond_to do |format|
-      format.html { redirect_to heads_url, notice: "Head was successfully destroyed." }
+      format.html { redirect_to heads_url, notice: "Jefe de Hogar Eliminado." }
       format.json { head :no_content }
     end
   end
