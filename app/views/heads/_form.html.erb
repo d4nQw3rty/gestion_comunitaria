@@ -12,12 +12,12 @@
   <% end %>
 
   <div class="mb-3">
-    <%= form.label :cedula, 'Cedula', style: "display: block" %>
+    <%= form.label :cedula, 'Cedula', style: "display: block", class: "form-label" %>
     <%= form.text_field :cedula, class: 'form-control' %>
   </div>
 
   <div class="mb-3">
-    <%= form.label :name, 'Nombre', style: "display: block" %>
+    <%= form.label :name, 'Nombre', style: "display: block", class: "form-label" %>
     <%= form.text_field :name, class: 'form-control' %>
   </div>
 
@@ -27,7 +27,7 @@
   </div>
 
   <div class="mb-3">
-    <%= form.label :birthdate, 'Fecha de Nacimiento', style: "display: block" %>
+    <%= form.label :birthdate, 'Fecha de Nacimiento', style: "display: block", class: "form-label" %>
     <%= form.date_field :birthdate %>
   </div>
 
