@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Heads</h1>
+
+<div id="heads">
+  <% @heads.each do |head| %>
+    <%= render head %>
+    <p>
+      <%= link_to "Show this head", head %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New head", new_head_path %>
