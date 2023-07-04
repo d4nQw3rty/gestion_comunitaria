@@ -1,5 +1,14 @@
 @import 'bootstrap';
 .overflow {
-    height: 62vh;
-    overflow: scroll;
+  height: 62vh;
+  overflow: scroll;
+}
+
+.devise-container{
+  width: 30%;
+  margin: 50px auto;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }

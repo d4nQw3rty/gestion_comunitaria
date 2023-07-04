@@ -1,3 +1,4 @@
+<div class="container text-bg-light p-3">
 <p style="color: green"><%= notice %></p>
 
 <h2 class='login-h1 red-border-b text-center'>Hogar de <%= @head.name%> <%= @head.sur_name%></h2>
@@ -23,4 +24,5 @@
 <div> 
   <%= link_to "Regresar", heads_path %>  |  
   <%= link_to "Nuevo Integrante", new_member_path(head_id: @head.id) %> 
+</div>
 </div>
