@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-  <div class="mb-3">
+  <div class="mb-3 ">
   <%= form.label :cedula, style: "display: block" %>
   <%= form.text_field :cedula, class: 'form-control' %>
 </div>
@@ -41,6 +41,6 @@
 
 
  <div>
-  <%= form.submit "Guardar" %>
+  <%= form.submit "Guardar", class: "btn btn-primary" %>
 </div>
 <% end %>
