@@ -22,6 +22,6 @@
 </div>
 <div> 
   <%= link_to "Regresar", heads_path %>  |  
-  <%= link_to "Nuevo Integrante", new_member_path(head_id: @head.id) %> 
+  <%= link_to "Nuevo Integrante", new_member_path(head_id: @head.id), data: { turbo_frame: "new-member" } %> 
 </div>
 </div>
