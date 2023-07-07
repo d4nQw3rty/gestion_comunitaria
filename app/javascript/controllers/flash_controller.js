@@ -10,17 +10,25 @@ export default class extends Controller {
     // Prevent default action
     e.preventDefault();
     // Remove from parent
-    const modal = document.getElementById("modal-edit-heads");
-    const newHead = document.getElementById("new-head")
-    modal.innerHTML = "";
+    const newHead = document.getElementById("new-head");
+    const editHead = document.getElementById("modal-edit-heads");
+    const newMember = document.getElementById("new-member");
+    const editMember = document.getElementById("edit-member");
+    editHead.innerHTML = "";
     newHead.innerHTML ="";
+    newMember.innerHTML="";
+    editMember.innerHTML="";
 
     // Remove the src attribute from the modal
-    modal.removeAttribute("src");
+    editHead.removeAttribute("src");
     newHead.removeAttribute("src");
+    newMember.removeAttribute("src");
+    editMember.removeAttribute("src");
 
     // Remove complete attribute
-    modal.removeAttribute("complete");
+    editHead.removeAttribute("complete");
     newHead.removeAttribute("complete");
+    newMember.removeAttribute("complete");
+    editMember.removeAttribute("complete");
   }
 }
