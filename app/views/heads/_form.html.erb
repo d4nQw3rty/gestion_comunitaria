@@ -1,4 +1,4 @@
-<%= form_with(model: head) do |form| %>
+<%= form_with(model: head, data: { turbo_frame: "_top" }) do |form| %>
   <% if head.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(head.errors.count, "error") %> prohibited this head from being saved:</h2>
@@ -35,5 +35,6 @@
 
   <div>
     <%= form.submit 'Guardar', class:"btn btn-primary" %>
+    
   </div>
 <% end %>

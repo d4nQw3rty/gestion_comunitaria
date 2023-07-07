@@ -18,5 +18,7 @@
     <%= render partial: "shared/flash" %>
       <%= yield %>
     </div>
+    <%= turbo_frame_tag "modal-edit-heads" %>
+    <%= turbo_frame_tag "new-head" %>
   </body>
 </html>
