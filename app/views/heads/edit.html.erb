@@ -1,11 +1,17 @@
-<div class="rounded-5 col-6 container text-bg-light p-3">
+<%= turbo_frame_tag "modal-edit-heads" do %>
+
+<div class="modal-container cancel-button rounded-5 col-6 container text-bg-light p-3">
 <h2 class='text-center'>Editar Jefe de hogar</h2>
 
 <%= render "form", head: @head %>
 
 <br>
 
-<div> 
-  <%= link_to "Regresar", heads_path %>
+<div class="d-flex justify-content-end">
+  <%= link_to "Cancel", "#", data: {
+    controller: "flash",
+    action: "flash#close"
+  }, class: "btn btn-secondary align-self-" %>
 </div>
-</div>
+
+<% end %>

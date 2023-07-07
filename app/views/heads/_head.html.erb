@@ -7,7 +7,7 @@
     <%= head.name %> <%= head.sur_name %>
   </td>
   <td>
-    <%= link_to "Editar", edit_head_path(head) %>
+    <%= link_to "Editar", edit_head_path(head), data: { turbo_frame: "modal-edit-heads" } %>
   </td>
 
   <td>
