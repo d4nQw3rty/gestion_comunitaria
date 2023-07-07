@@ -1,20 +1,10 @@
 <%= turbo_frame_tag "new-head" do %>
-
-<div class=" modal-container rounded-5 col-6 container text-bg-light p-3">
-
-<div>
-<h1>Nuevo Jefe de Hogar</h1>
-
-<%= render "form", head: @head %>
-
-<br>
-
-<div class="d-flex justify-content-end">
-  <%= link_to "Cancel", "#", data: {
-    controller: "flash",
-    action: "flash#close"
-  }, class: "btn btn-secondary align-self-" %>
-</div>
-</div>
-</div>
+  <div class="modal-container rounded-5 col-6 container text-bg-light p-3">
+    <div>
+      <h1>Nuevo Jefe de Hogar</h1>    
+      <%= render "form", head: @head %>    
+      <br>    
+      <%= render partial: "shared/close_button" %>
+    </div>
+  </div>
 <% end %>
