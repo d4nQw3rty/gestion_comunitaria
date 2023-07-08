@@ -4,6 +4,7 @@ class HeadsController < ApplicationController
   # GET /heads or /heads.json
   def index
     @heads = Head.includes(:user).where(user_id: current_user.id)
+    @count = @heads.size
   end
 
   # GET /heads/1 or /heads/1.json
