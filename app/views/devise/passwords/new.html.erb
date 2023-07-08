@@ -1,25 +1,60 @@
 <%= render "devise/shared/sgc" %>
+
+<div class="d-flex justify-content-center mt-5">
+
+  <div class="d-flex justify-content-center col-sm col-md-6 bg-body text-body p-3 rounded-3">
+  
+    <div class=" ">
+    <h2 class="text-center">Recuperar Clave</h2>
+      
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+    
+      <div class="mb-3  ">
+        <%= f.label :email, "Email", class: "form-label" %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+      </div>
+    
+      <div class="actions">
+        <%= f.submit "Enviar", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  
+    <%= render "devise/shared/links" %>
+    </div>
+
+  </div>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="container">
 
   <div class="row justify-content-center height-75">
 
     <div class="col-4 align-self-center bg-body text-body p-3 rounded-3">
-      <h2 class="text-center">Recuperar Clave</h2>
       
-      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-        <%= render "devise/shared/error_messages", resource: resource %>
-      
-        <div class="mb-3  ">
-          <%= f.label :email, "Email", class: "form-label" %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
-        </div>
-      
-        <div class="actions">
-          <%= f.submit "Enviar", class: "btn btn-primary" %>
-        </div>
-      <% end %>
-    
-      <%= render "devise/shared/links" %>
     </div> 
   </div>
 
