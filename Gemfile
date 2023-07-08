@@ -79,3 +79,6 @@ end
 
 # Secure DB connection
 gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
+
+#Add pg_search
+gem 'pg_search'
