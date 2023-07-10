@@ -24,7 +24,7 @@
         </li>        
       </ul>
       <div class="d-flex">
-        <%= button_to 'Salir', destroy_user_session_path, method: :delete, class: "btn btn-primary" %>     
+        <%= button_to 'Salir', destroy_user_session_path, method: :delete, data: {"turbo-confirm": '¿Desea cerrar sesión?'}, class: "btn btn-primary" %>     
       </div>
     </div>
   </div>
