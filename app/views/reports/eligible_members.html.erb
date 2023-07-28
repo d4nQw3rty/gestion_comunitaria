@@ -1,0 +1,24 @@
+<h1> Total de votantes hasta la fecha <%= l(@end_date) %>: <%= @total_people %></h1>
+<div class="rounded-5 container text-bg-light p-3">
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Cedula</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Fecha de Nacimiento</th>
+      <th scope="col">Edad</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @members.each do |member| %>
+      <tr>
+        <td><%= member.cedula %></td>
+        <td><%= member.name %> <%= member.sur_name %></td>
+        <td><%= member.birthdate %></td>
+        <td><%= member.age %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
+  devise_for :users
+  resources :members
+  resources :heads
+  resources :users
+  root "heads#index"
+  get '/reports/eligible_members', to: 'reports#eligible_members'
 end

@@ -1,0 +1,40 @@
+<%= form_with(model: head, data: { turbo_frame: "_top" }) do |form| %>
+  <% if head.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(head.errors.count, "error") %> prohibited this head from being saved:</h2>
+
+      <ul>
+        <% head.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :cedula, 'Cedula', style: "display: block", class: "form-label" %>
+    <%= form.text_field :cedula, class: 'form-control' %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :name, 'Nombre', style: "display: block", class: "form-label" %>
+    <%= form.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :sur_name, 'Apellido', style: "display: block", class: "form-label" %>
+    <%= form.text_field :sur_name, class: 'form-control' %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :birthdate, 'Fecha de Nacimiento', style: "display: block", class: "form-label" %>
+    <%= form.date_field :birthdate %>
+  </div>
+
+  <%= form.hidden_field :user_id, value: current_user.id %>
+
+  <div>
+    <%= form.submit 'Guardar', class:"btn btn-primary" %>
+    
+  </div>
+<% end %>

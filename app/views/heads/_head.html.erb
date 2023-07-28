@@ -1,0 +1,20 @@
+<tr id="<%= dom_id head %>"> 
+  <td>
+    <%= head.cedula %>
+  </td>
+
+  <td>
+    <%= head.name %> <%= head.sur_name %>
+  </td>
+  <td>
+    <%= link_to "Editar", edit_head_path(head), data: { turbo_frame: "modal-edit-heads" } %>
+  </td>
+
+  <td>
+  <%= link_to "Ver", head %>
+  </td>
+
+  <td>
+  <%= button_to "Eliminar", head, method: :delete, data: {"turbo-confirm": '¿Quieres eliminar éste Jefe de Hogar?'} , class: "btn btn-danger" %>
+  </td>  
+</tr>

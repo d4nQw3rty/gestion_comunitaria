@@ -1,0 +1,23 @@
+<tr id="<%= dom_id member %>">
+
+  <td>  
+    <%= member.cedula %>
+  </td>
+
+  <td>
+    <%= member.name %> <%= member.sur_name %>
+  </td>
+
+  <td>
+    <%= member.relationship %> 
+  </td>
+
+
+  <td>
+    <%= link_to "Editar", edit_member_path(member,head_id: member.head), data: { turbo_frame: "edit-member" } %>
+  </td> 
+
+  <td>
+    <%= button_to "Eliminar", member, method: :delete,data: {"turbo-confirm": '¿Quieres eliminar éste integrante?'}, class: "btn btn-danger" %>
+  </td>
+</tr>

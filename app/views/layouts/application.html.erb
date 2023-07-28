@@ -10,7 +10,14 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="text-bg-secondary p-3">
+    <% if user_signed_in? %>   
+      <%= render "layouts/navbar" %>
+    <% end %>
+    <div>
+    <%= render partial: "shared/flash" %>
+      <%= yield %>
+    </div>
+    <%= render partial: "layouts/modals" %>
   </body>
 </html>

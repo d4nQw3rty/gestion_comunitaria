@@ -1,0 +1,46 @@
+<%= form_with(model: member, data: { turbo_frame: "_top" }) do |form| %>
+  <% if member.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(member.errors.count, "error") %> prohibited this member from being saved:</h2>
+
+      <ul>
+        <% member.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3 ">
+  <%= form.label :cedula, style: "display: block" %>
+  <%= form.text_field :cedula, class: 'form-control' %>
+</div>
+
+<div class="mb-3">
+  <%= form.label :name,'Nombre', style: "display: block", class: "form-label" %>
+  <%= form.text_field :name, class: 'form-control' %>
+</div>
+
+<div class="mb-3">
+  <%= form.label :sur_name,'Apellido', style: "display: block", class: "form-label" %>
+  <%= form.text_field :sur_name, class: 'form-control' %>
+</div>
+
+<div class="mb-3">
+  <%= form.label :relationship, 'Parentesco'%>
+  <%= form.select :relationship, options_for_select(['Opciones', 'Esposo', 'Esposa', 'Madre', 'Padre', 'Hijo', 'Hija', 'Hermano', 'Hermana', 'Sobrino', 'Sobrina', 'Nieto', 'Nieta', 'Abuelo', 'Abuela'], { class: "form-control" }), { class: "form-select" }  %>
+</div>
+
+<div class="mb-3">
+  <%= form.label :birthdate, 'Nacimiento', style: "display: block" %>
+  <%= form.date_field :birthdate %>
+</div>
+
+<%= form.hidden_field :head_id, value: params[:head_id] %>
+
+
+
+ <div>
+  <%= form.submit "Guardar", class: "btn btn-primary" %>
+</div>
+<% end %>

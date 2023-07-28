@@ -1,0 +1,27 @@
+<div class="container text-bg-light p-3 rounded-5">
+
+<h2 class='login-h1 red-border-b text-center'>Hogar de <%= @head.name%> <%= @head.sur_name%></h2>
+
+<div id="members"  class="overflow">
+  <table class="table table-striped">
+  <thead>
+    <tr>      
+      <th scope="col">Cedula</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Parentesco</th>
+      <th scope="col">Editar</th>      
+      <th scope="col">Eliminar</th>
+    </tr>
+  </thead>
+    <tbody>
+      <% @members.each do |member| %>
+        <%= render member %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<div> 
+  <%= link_to "Regresar", heads_path %>  |  
+  <%= link_to "Nuevo Integrante", new_member_path(head_id: @head.id), data: { turbo_frame: "new-member" } %> 
+</div>
+</div>
