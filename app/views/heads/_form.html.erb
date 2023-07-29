@@ -41,6 +41,14 @@
     <%= form.date_field :birthdate %>
   </div>
 
+  <% SocialAid.all.each do |social_aid| %>
+    <div>
+      <%= form.check_box :social_aid_ids, { multiple: true }, social_aid.id, nil %>
+      <%= social_aid.name %>
+    </div>
+  <% end %>
+
+
   <%= form.hidden_field :user_id, value: current_user.id %>
 
   <div>

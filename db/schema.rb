@@ -22,6 +22,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_28_211634) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "social_aid_ids", array: true, default: []
     t.string "phone_number"
     t.string "home_number"
     t.index ["user_id"], name: "index_heads_on_user_id"
