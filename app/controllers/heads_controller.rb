@@ -21,10 +21,12 @@ class HeadsController < ApplicationController
   # GET /heads/new
   def new
     @head = Head.new
+    @social_aids = SocialAid.all
   end
 
   # GET /heads/1/edit
   def edit
+    @social_aids = SocialAid.all
   end
 
   # POST /heads or /heads.json
@@ -73,6 +75,6 @@ class HeadsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def head_params
-      params.require(:head).permit(:cedula, :name, :sur_name, :birthdate, :home_number, :phone_number, :user_id)
+      params.require(:head).permit(:cedula, :name, :sur_name, :birthdate, :home_number, :phone_number, :user_id, :social_aid_ids => [])
     end
 end

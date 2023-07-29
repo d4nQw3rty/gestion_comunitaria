@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @social_aid %>
+
+<div>
+  <%= link_to "Edit this social aid", edit_social_aid_path(@social_aid) %> |
+  <%= link_to "Back to social aids", social_aids_path %>
+
+  <%= button_to "Destroy this social aid", @social_aid, method: :delete %>
+</div>

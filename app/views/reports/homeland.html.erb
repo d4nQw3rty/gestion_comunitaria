@@ -1,0 +1,32 @@
+<%= render partial: "shared/report_head" %>
+<div class="d-flex p-4 justify-content-around">
+  <p>Lider de calle: <%= @user.name %></p>
+  <p>Calle: 108B</p>
+  <p>Total de Jefes de hogar: <%= @total_people %></p>
+</div>
+<div class="rounded-5 container text-bg-light p-3">
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Cédula</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Teléfono</th>
+      <th scope="col">Hogares de la patria</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @heads.each do |head| %>    
+      <tr>
+        <td><%= head.cedula %></td>
+        <td><%= head.name %> <%= head.sur_name %></td>
+        <td><%= head.phone_number %></td>
+        <% if head.social_aid_name.present? && head.social_aid_name == "Hogares de la patria" %>
+          <td><p>Sí</p></td>
+        <% else %>        
+          <td><%= content_tag :p, "No" %></td>
+        <% end %>         
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

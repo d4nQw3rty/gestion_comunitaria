@@ -22,4 +22,12 @@ class ReportsController < ApplicationController
         @count = @heads.size
         @user = current_user
       end
+
+      def homeland
+        @user = current_user
+        @heads = Head.left_outer_joins(heads_social_aids: :social_aid)
+             .select('heads.id as head_id, heads.cedula, heads.name, heads.sur_name, heads.phone_number, social_aids.name as social_aid_name')
+        @people = Head.includes(:user).where(user_id: current_user.id)
+        @total_people = @people.size
+      end
   end
