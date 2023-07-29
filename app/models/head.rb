@@ -7,6 +7,7 @@ class Head < ApplicationRecord
   belongs_to :user
 
   has_many :members, dependent: :destroy
+  has_and_belongs_to_many :social_aids
 
   validates :name, presence: true
   validates :sur_name, presence: true  
