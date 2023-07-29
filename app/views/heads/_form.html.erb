@@ -26,6 +26,16 @@
     <%= form.text_field :sur_name, class: 'form-control' %>
   </div>
 
+   <div class="mb-3">
+    <%= form.label :home_number, '# casa', style: "display: block", class: "form-label" %>
+    <%= form.text_field :home_number, class: 'form-control' %>
+  </div>
+
+   <div class="mb-3">
+    <%= form.label :phone_number, 'Teléfono', style: "display: block", class: "form-label" %>
+    <%= form.text_field :phone_number, class: 'form-control' %>
+  </div>
+
   <div class="mb-3">
     <%= form.label :birthdate, 'Fecha de Nacimiento', style: "display: block", class: "form-label" %>
     <%= form.date_field :birthdate %>

@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-  <div class="mb-3 ">
+<div class="mb-3 ">
   <%= form.label :cedula, style: "display: block" %>
   <%= form.text_field :cedula, class: 'form-control' %>
 </div>
@@ -29,6 +29,11 @@
 <div class="mb-3">
   <%= form.label :relationship, 'Parentesco'%>
   <%= form.select :relationship, options_for_select(['Opciones', 'Esposo', 'Esposa', 'Madre', 'Padre', 'Hijo', 'Hija', 'Hermano', 'Hermana', 'Sobrino', 'Sobrina', 'Nieto', 'Nieta', 'Abuelo', 'Abuela'], { class: "form-control" }), { class: "form-select" }  %>
+</div>
+
+ <div class="mb-3 ">
+  <%= form.label :phone_number, 'Teléfono', style: "display: block" %>
+  <%= form.text_field :phone_number, class: 'form-control' %>
 </div>
 
 <div class="mb-3">

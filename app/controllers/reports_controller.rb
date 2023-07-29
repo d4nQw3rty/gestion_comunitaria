@@ -13,4 +13,13 @@ class ReportsController < ApplicationController
         # Contar el total de personas
         @total_people = @members.count
       end
+
+      def clap
+        @heads = Head.includes(:user)
+        .where(user_id: current_user.id)
+        .order(Arel.sql("CAST(substring(home_number from '[0-9]+\\-([0-9]+)') AS INTEGER) ASC"))
+
+        @count = @heads.size
+        @user = current_user
+      end
   end

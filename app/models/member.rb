@@ -1,6 +1,11 @@
 class Member < ApplicationRecord
   belongs_to :head
 
+  validates :name, presence: true
+  validates :sur_name, presence: true  
+  validates :phone_number, presence: true
+  validates :relationship, presence: true
+
   def age
     today = Time.now.utc.to_date
     birthdate = self.birthdate.to_date
