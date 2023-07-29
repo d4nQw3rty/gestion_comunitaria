@@ -1,6 +1,14 @@
-<h3 class="text-center"> Censo CLAP Seguridad Alimentaria:  <%= @count %> hogares</h3>
-<p class="ms-5">Lider de calle: <%= @user.name %><br> Calle 108-B
- </p>
+<%= render partial: "shared/report_head" %>
+<div class="mt-1">
+<p class="text-center m-0"> Censo CLAP</p>
+</div>
+
+<div class="d-flex justify-content-around">
+
+  <p>Lider de calle: <%= @user.name %></p>
+  <p>Calle: 108B</p>
+  <p>Total de Jefes de hogar: <%= @count %></p>
+</div>
 <div class="rounded-5 container text-bg-light p-3">
 <table class="table table-striped">
   <thead>
