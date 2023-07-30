@@ -41,9 +41,17 @@
   <%= form.date_field :birthdate %>
 </div>
 
+<div class="field">
+  <%= form.label :social_aid_ids, "Ayuda Social" %>
+  <% SocialAid.all.each do |social_aid| %>
+    <div class="form-check">
+      <%= check_box_tag "member[social_aid_ids][]", social_aid.id, @member.social_aid_ids.include?(social_aid.id) %>
+      <%= label_tag "member[social_aid_ids][]", social_aid.name %>
+    </div>
+  <% end %>
+</div>
+
 <%= form.hidden_field :head_id, value: params[:head_id] %>
-
-
 
  <div>
   <%= form.submit "Guardar", class: "btn btn-primary" %>

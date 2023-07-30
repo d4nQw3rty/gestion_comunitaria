@@ -30,4 +30,13 @@ class ReportsController < ApplicationController
         @people = Head.includes(:user).where(user_id: current_user.id)
         @total_people = @people.size
       end
+
+      def amor_mayor
+        @user = current_user
+        @heads = Head.joins(:social_aids).where(social_aids: { name: "Amor mayor" })
+        @members = Member.joins(:members_social_aids).joins("INNER JOIN social_aids ON social_aids.id = members_social_aids.social_aid_id").where("social_aids.name = ?", "Amor mayor")
+        @count = @heads.size + @members.size
+
+      end
+
   end

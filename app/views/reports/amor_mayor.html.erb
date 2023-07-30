@@ -1,0 +1,56 @@
+<%= render partial: "shared/report_head" %>
+<div class="mt-1">
+<p class="text-center m-0"> Censo Amor Mayor</p>
+</div>
+
+<div class="d-flex justify-content-around">
+  <p>Lider de calle: <%= @user.name %></p>
+  <p>Calle: 108B</p>
+  <p>Total de Beneficiados: <%= @count %></p>
+</div>
+<div class="rounded-5 container text-bg-light p-3">
+<table class="table table-strip">
+  <thead>
+    <tr>      
+      <th scope="col">Cedula</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Teléfono</th>
+      <th scope="col">Información</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @heads.each do |head| %>
+      <tr>
+        <td>
+          <%= head.cedula %>
+        </td>
+        <td>
+          <%= head.name %> <%= head.sur_name %>
+        </td>
+        <td>
+          <%= head.phone_number %>
+        </td>
+        <td>
+          Jefe de Hogar
+        </td>      
+      </tr>
+    <% end %>
+    <% @members.each do |member| %>
+      <tr>
+        <td>
+          <%= member.cedula %>
+        </td>
+        <td>
+          <%= member.name %> <%= member.sur_name %>
+        </td>
+        <td>
+          <%= member.phone_number %>
+        </td>
+        <td>
+          jefe de hogar: <%= member.head.name %> <%= member.head.sur_name %>
+        </td>      
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
