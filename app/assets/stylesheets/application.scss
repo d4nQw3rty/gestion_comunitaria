@@ -17,26 +17,7 @@
   height: 75vh;
 }
 
-.modal-container {
-  position: fixed;
-  z-index: 99;
-  padding: 2em;
-  
-  /* Centering */
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-
-  overflow: auto;
-  background-color: rgb(0,0,0);
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 5px;
-  /* Add the drop shadow */
-  box-shadow: 0 0 10px 0 rgba(0,0,0,0.2), 0 5px 10px 0 rgba(0,0,0,0.19);
-}
-
 .my-modal {
-  display: block;
   position: fixed;
   z-index: 1;
   left: 0;
