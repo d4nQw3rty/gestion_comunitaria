@@ -13,7 +13,6 @@ class Head < ApplicationRecord
   validates :sur_name, presence: true  
   validates :phone_number, presence: true
 
-
   def age
     today = Time.now.utc.to_date
     birthdate = self.birthdate.to_date

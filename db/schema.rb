@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_29_193456) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_30_124648) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -34,6 +34,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_29_193456) do
     t.string "phone_number"
     t.string "home_number"
     t.bigint "social_aid_id"
+    t.boolean "disability"
+    t.string "disability_types"
     t.index ["social_aid_id"], name: "index_heads_on_social_aid_id"
     t.index ["user_id"], name: "index_heads_on_user_id"
   end
