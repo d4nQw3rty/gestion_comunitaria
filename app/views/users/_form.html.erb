@@ -12,10 +12,27 @@
   <% end %>
 
   <div>
-    <%= form.label :name, style: "display: block" %>
+    <%= form.label :name, "Nombre", style: "display: block" %>
     <%= form.text_field :name %>
   </div>
+    <div>
+    <%= form.label :comuna, "Comuna", style: "display: block" %>
+    <%= form.text_field :comuna %>
+  </div>
 
+   <div>
+    <%= form.label :ubch, "UBCH", style: "display: block" %>
+    <%= form.text_field :ubch %>
+  </div>
+
+  <div>
+    <%= form.label :community, "Comunidad", style: "display: block" %>
+    <%= form.text_field :community %>
+  </div>
+  <div>
+    <%= form.label :street, "Calle", style: "display: block" %>
+    <%= form.text_field :street %>
+  </div>
   <div>
     <%= form.submit %>
   </div>
