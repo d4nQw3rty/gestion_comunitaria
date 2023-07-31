@@ -1,4 +1,14 @@
-<h1> Total de votantes hasta la fecha <%= l(@end_date) %>: <%= @total_people %></h1>
+<%= render partial: "shared/report_head" %>
+
+<div class="mt-1">
+  <p class="text-center m-0"> Censo Votantes</p>
+</div>
+
+<%= render partial: "shared/user_header_data" %>
+
+<div class="">
+  <h3 class="text-center">Jefe de Hogar</h3>
+</div>
 <div class="rounded-5 container text-bg-light p-3">
 
 <table class="table table-striped">
@@ -12,15 +22,45 @@
     </tr>
   </thead>
   <tbody>
-    <% @members.each do |member| %>
+    <% @heads.each do |head| %>
       <tr>
-        <td><%= member.cedula %></td>
-        <td><%= member.name %> <%= member.sur_name %></td>
-        <td><%= member.birthdate %></td>
-        <td><%= member.age %></td>
-        <td><%= member.phone_number %></td>
+        <td><%= head.cedula %></td>
+        <td><%= head.name %> <%= head.sur_name %></td>
+        <td><%= head.head_birthdate %></td>
+        <td><%= head.age %></td>
+        <td><%= head.phone_number %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+</div>
+
+
+<div class="p-4">
+  <h3 class="text-center">Integrantes de Hogar</h3>
+</div>
+
+<div class="rounded-5 container text-bg-light p-3">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Cedula</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Fecha de Nacimiento</th>
+        <th scope="col">Edad</th>
+        <th scope="col">Teléfono</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @members.each do |member| %>
+        <tr>
+          <td><%= member.cedula %></td>
+          <td><%= member.name %> <%= member.sur_name %></td>
+          <td><%= member.member_birthdate %></td>
+          <td><%= member.age %></td>
+          <td><%= member.phone_number %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
