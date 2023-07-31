@@ -3,11 +3,7 @@
 <p class="text-center m-0"> Censo Amor Mayor</p>
 </div>
 
-<div class="d-flex justify-content-around">
-  <p>Lider de calle: <%= @user.name %></p>
-  <p>Calle: 108B</p>
-  <p>Total de Beneficiados: <%= @count %></p>
-</div>
+<%= render partial: "shared/user_header_data"%>
 <div class="rounded-5 container text-bg-light p-3">
 <table class="table table-strip">
   <thead>
