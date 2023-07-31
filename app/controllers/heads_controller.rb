@@ -5,9 +5,13 @@ class HeadsController < ApplicationController
   def index
     
     if params[:query].present?
-      @heads = Head.includes(:user).where(user_id: current_user.id).search_by_full_name(params[:query])
+      @heads = Head.includes(:user)
+      .where(user_id: current_user.id).search_by_full_name(params[:query])
+      .order(Arel.sql("CAST(substring(home_number from '[0-9]+\\-([0-9]+)') AS INTEGER) ASC"))
     else
-      @heads = Head.includes(:user).where(user_id: current_user.id)
+      @heads = Head.includes(:user)
+      .where(user_id: current_user.id)
+      .order(Arel.sql("CAST(substring(home_number from '[0-9]+\\-([0-9]+)') AS INTEGER) ASC"))
     end
     @count = @heads.size
   end

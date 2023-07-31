@@ -5,7 +5,7 @@
 <div class="d-flex p-4 justify-content-around">
   <p>Lider de calle: <%= @user.name %></p>
   <p>Calle: 108B</p>
-  <p>Total de Jefes de hogar: <%= @total_people %></p>
+  <p>Total de Jefes de hogar: <%= @count %></p>
 </div>
 <div class="rounded-5 container text-bg-light p-3">
 <table class="table table-striped">
@@ -23,13 +23,18 @@
         <td><%= head.cedula %></td>
         <td><%= head.name %> <%= head.sur_name %></td>
         <td><%= head.phone_number %></td>
-        <% if head.social_aid_name.present? && head.social_aid_name == "Hogares de la patria" %>
-          <td><p>Sí</p></td>
-        <% else %>        
-          <td><%= content_tag :p, "No" %></td>
-        <% end %>         
+        <td>Sí</td>
+      </tr>
+    <% end %>
+      <% @heads_without_hogares.each do |head| %>    
+      <tr>
+        <td><%= head.cedula %></td>
+        <td><%= head.name %> <%= head.sur_name %></td>
+        <td><%= head.phone_number %></td>
+        <td>No</td>
       </tr>
     <% end %>
   </tbody>
 </table>
 </div>
+<p><%=@heads.size%><%= @heads_without_hogares.size %></p>

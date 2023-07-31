@@ -15,19 +15,19 @@ class ReportsController < ApplicationController
   end
 
   def clap
+    @user = current_user
     @heads = Head.includes(:user)
     .where(user_id: current_user.id)
     .order(Arel.sql("CAST(substring(home_number from '[0-9]+\\-([0-9]+)') AS INTEGER) ASC"))
-    @count = @heads.size
-    @user = current_user
+    @count = @heads.size  
   end
 
   def homeland
     @user = current_user
-    @heads = Head.left_outer_joins(heads_social_aids: :social_aid)
-         .select('heads.id as head_id, heads.cedula, heads.name, heads.sur_name, heads.phone_number, social_aids.name as social_aid_name')
-    @people = Head.includes(:user).where(user_id: current_user.id)
-    @total_people = @people.size
+    
+    @heads = Head.joins(:social_aids).where(social_aids: { name: "Hogares de la patria" }, user_id: @user.id)
+    @heads_without_hogares = Head.where.not(id: @heads.pluck(:id)).where(user_id: @user.id)
+    @count = @heads.size + @heads_without_hogares.size
   end
 
   def amor_mayor
