@@ -79,6 +79,6 @@ class HeadsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def head_params
-      params.require(:head).permit(:cedula, :name, :sur_name, :birthdate, :home_number, :phone_number, :user_id, :disability, :disability_types, :social_aid_ids => [])
+      params.require(:head).permit(:cedula, :name, :sur_name, :head_birthdate, :home_number, :phone_number, :user_id, :disability, :disability_types, :social_aid_ids => [])
     end
 end

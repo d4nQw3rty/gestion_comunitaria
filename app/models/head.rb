@@ -15,14 +15,14 @@ class Head < ApplicationRecord
 
   def age
     today = Time.now.utc.to_date
-    birthdate = self.birthdate.to_date
-    age = today.year - birthdate.year
-    age -= 1 if (birthdate.month > today.month || (birthdate.month == today.month && birthdate.day > today.day))
+    head_birthdate = self.head_birthdate.to_date
+    age = today.year - head_birthdate.year
+    age -= 1 if (head_birthdate.month > today.month || (head_birthdate.month == today.month && head_birthdate.day > today.day))
     age
   end
 
   def self.eligible_heads(end_date)
-    where("birthdate <= ?", end_date - 17.years).order("birthdate DESC")
+    where("head_birthdate <= ?", end_date - 17.years).order("head_birthdate DESC")
   end
-
+  
 end
