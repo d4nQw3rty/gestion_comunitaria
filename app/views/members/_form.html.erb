@@ -41,6 +41,16 @@
   <%= form.date_field :birthdate %>
 </div>
 
+  <div class="mb-3">
+    <%= form.label :member_disability, '¿Tiene alguna discapacidad?', style: "display: block", class: "form-label" %>
+    <%= form.check_box :member_disability %>
+  </div>
+  
+  <div class="mb-3">
+    <%= form.label :member_disability_types, 'Tipo de discapacidad', style: "display: block", class: "form-label" %>
+    <%= form.text_field :member_disability_types, class: 'form-control' %>
+  </div>
+
 <div class="field">
   <%= form.label :social_aid_ids, "Ayuda Social" %>
   <% SocialAid.all.each do |social_aid| %>

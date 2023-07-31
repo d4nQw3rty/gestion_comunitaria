@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   get '/reports/clap', to: 'reports#clap'
   get '/reports/homeland', to: 'reports#homeland'
   get '/reports/amor_mayor', to: 'reports#amor_mayor'
+  get '/reports/jose_gregorio_hernandez', to: 'reports#jose_gregorio_hernandez'
 end
