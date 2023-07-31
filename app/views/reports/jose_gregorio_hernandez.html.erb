@@ -1,0 +1,40 @@
+<%= render partial: "shared/report_head" %>
+<div class="mt-1">
+<p class="text-center m-0"> Censo José Gregorio Hernández</p>
+</div>
+
+<div class="d-flex justify-content-around">
+  <p>Lider de calle: <%= @user.name %></p>
+  <p>Calle: 108B</p>
+  <p>Total de discapacitados: <%= @count %></p>
+</div>
+<div class="rounded-5 container text-bg-light p-3">
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Cedula</th>
+      <th>Nombre</th>
+      <th>Tiene Ayuda Sistema Patria?</th>
+      <th>Jefe de Hogar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @heads.each do |h| %>
+      <tr>
+        <td><%= h[:head].cedula %></td>
+        <td><%= h[:head].name %> <%= h[:head].sur_name %></td>
+        <td><%= h[:has_social_aid] ? "Sí" : "No" %></td>
+        <td>Sí</td>
+      </tr>
+    <% end %>
+    <% @members.each do |member| %>
+      <tr>
+        <td><%= member[:member].cedula %></td>
+        <td><%= member[:member].name %> <%= member[:member].sur_name %></td>        
+        <td><%= member[:has_social_aid] ? "Sí" : "No" %></td>
+        <td><%= member[:member].head.name %> <%= member[:member].head.sur_name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

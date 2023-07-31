@@ -10,9 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_28_211634) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_30_143834) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "head_social_aids", force: :cascade do |t|
+    t.bigint "head_id", null: false
+    t.bigint "social_aid_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["head_id"], name: "index_head_social_aids_on_head_id"
+    t.index ["social_aid_id"], name: "index_head_social_aids_on_social_aid_id"
+  end
 
   create_table "heads", force: :cascade do |t|
     t.string "cedula"
@@ -24,7 +33,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_28_211634) do
     t.datetime "updated_at", null: false
     t.string "phone_number"
     t.string "home_number"
+    t.bigint "social_aid_id"
+    t.boolean "disability"
+    t.string "disability_types"
+    t.index ["social_aid_id"], name: "index_heads_on_social_aid_id"
     t.index ["user_id"], name: "index_heads_on_user_id"
+  end
+
+  create_table "heads_social_aids", id: false, force: :cascade do |t|
+    t.bigint "head_id", null: false
+    t.bigint "social_aid_id", null: false
   end
 
   create_table "members", force: :cascade do |t|
@@ -37,7 +55,34 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_28_211634) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "phone_number"
+    t.boolean "member_disability"
+    t.string "member_disability_types"
     t.index ["head_id"], name: "index_members_on_head_id"
+  end
+
+  create_table "members_social_aids", force: :cascade do |t|
+    t.bigint "member_id"
+    t.bigint "social_aid_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["member_id"], name: "index_members_social_aids_on_member_id"
+    t.index ["social_aid_id"], name: "index_members_social_aids_on_social_aid_id"
+  end
+
+  create_table "social_aids", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "social_aids_heads", force: :cascade do |t|
+    t.bigint "social_aid_id"
+    t.bigint "head_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["head_id"], name: "index_social_aids_heads_on_head_id"
+    t.index ["social_aid_id"], name: "index_social_aids_heads_on_social_aid_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -53,6 +98,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_28_211634) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "head_social_aids", "heads"
+  add_foreign_key "head_social_aids", "social_aids"
+  add_foreign_key "heads", "social_aids"
   add_foreign_key "heads", "users"
   add_foreign_key "members", "heads"
+  add_foreign_key "social_aids_heads", "heads"
 end

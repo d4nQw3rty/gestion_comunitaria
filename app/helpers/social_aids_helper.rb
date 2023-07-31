@@ -1,0 +1,2 @@
+module SocialAidsHelper
+end

@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Social aids</h1>
+
+<div id="social_aids">
+  <% @social_aids.each do |social_aid| %>
+    <%= render social_aid %>
+    <p>
+      <%= link_to "Show this social aid", social_aid %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New social aid", new_social_aid_path %>

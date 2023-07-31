@@ -5,9 +5,13 @@ class HeadsController < ApplicationController
   def index
     
     if params[:query].present?
-      @heads = Head.includes(:user).where(user_id: current_user.id).search_by_full_name(params[:query])
+      @heads = Head.includes(:user)
+      .where(user_id: current_user.id).search_by_full_name(params[:query])
+      .order(Arel.sql("CAST(substring(home_number from '[0-9]+\\-([0-9]+)') AS INTEGER) ASC"))
     else
-      @heads = Head.includes(:user).where(user_id: current_user.id)
+      @heads = Head.includes(:user)
+      .where(user_id: current_user.id)
+      .order(Arel.sql("CAST(substring(home_number from '[0-9]+\\-([0-9]+)') AS INTEGER) ASC"))
     end
     @count = @heads.size
   end
@@ -21,10 +25,12 @@ class HeadsController < ApplicationController
   # GET /heads/new
   def new
     @head = Head.new
+    @social_aids = SocialAid.all
   end
 
   # GET /heads/1/edit
   def edit
+    @social_aids = SocialAid.all
   end
 
   # POST /heads or /heads.json
@@ -73,6 +79,6 @@ class HeadsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def head_params
-      params.require(:head).permit(:cedula, :name, :sur_name, :birthdate, :home_number, :phone_number, :user_id)
+      params.require(:head).permit(:cedula, :name, :sur_name, :birthdate, :home_number, :phone_number, :user_id, :disability, :disability_types, :social_aid_ids => [])
     end
 end

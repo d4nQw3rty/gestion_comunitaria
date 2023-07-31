@@ -1,5 +1,6 @@
 class Member < ApplicationRecord
   belongs_to :head
+  has_and_belongs_to_many :social_aids
 
   validates :name, presence: true
   validates :sur_name, presence: true  
