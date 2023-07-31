@@ -37,4 +37,6 @@
   </tbody>
 </table>
 </div>
-<p><%=@heads.size%><%= @heads_without_hogares.size %></p>
+<div class="container d-flex justify-content-between mt-4">
+  <p>Jefes de hogares protegidos: <%=@heads.size%> </p><p> Jefes de hogares no protegidos: <%= @heads_without_hogares.size %></p>
+</div>
