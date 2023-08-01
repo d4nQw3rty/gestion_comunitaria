@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :states
   resources :social_aids
   devise_for :users
   resources :members

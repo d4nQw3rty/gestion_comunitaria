@@ -16,7 +16,6 @@
             Reportes
           </a>
           <ul class="dropdown-menu">
-
             <li><%= link_to "Votantes", reports_eligible_members_path, class: "dropdown-item" %></li>
             <li><hr class="dropdown-divider"></li>
             <li><%= link_to "CLAP", reports_clap_path, class: "dropdown-item" %></li>
@@ -25,11 +24,12 @@
             <li><hr class="dropdown-divider"></li>
             <li><%= link_to "Amor mayor", reports_amor_mayor_path, class: "dropdown-item" %></li>
             <li><hr class="dropdown-divider"></li>
-            <li><%= link_to "José Gregorio Hernández", reports_jose_gregorio_hernandez_path, class: "dropdown-item" %></li>
-          
-          
+            <li><%= link_to "José Gregorio Hernández", reports_jose_gregorio_hernandez_path, class: "dropdown-item" %></li>          
           </ul>
-        </li>        
+        </li> 
+        <li class="nav-item">
+          <%= link_to "Perfil de usuario", user_path(@user), class:"nav-link text-light active"%>
+        </li>       
       </ul>
       <div class="d-flex">
         <%= button_to 'Salir', destroy_user_session_path, method: :delete, data: {"turbo-confirm": '¿Desea cerrar sesión?'}, class: "btn btn-primary" %>     

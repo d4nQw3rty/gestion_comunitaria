@@ -3,7 +3,7 @@ class HeadsController < ApplicationController
 
   # GET /heads or /heads.json
   def index
-    
+    @user = current_user
     if params[:query].present?
       @heads = Head.includes(:user)
       .where(user_id: current_user.id).search_by_full_name(params[:query])

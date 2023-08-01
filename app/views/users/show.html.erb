@@ -1,5 +1,4 @@
-<p style="color: green"><%= notice %></p>
-
+<div class="rounded-5  container text-bg-light p-3">
 <%= render @user %>
 
 <div>
@@ -7,4 +6,5 @@
   <%= link_to "Back to users", users_path %>
 
   <%= button_to "Destroy this user", @user, method: :delete %>
+</div>
 </div>
