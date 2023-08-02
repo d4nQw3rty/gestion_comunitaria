@@ -1,7 +1,25 @@
 <div id="<%= dom_id user %>">
+
+
   <p>
     <strong>Nombre:</strong>
     <%= user.name %>
   </p>
-
+  <p>
+    <strong>Estado:</strong>
+    
+   <%= user.state.nil? ? '' : user.state.state_name %>
+  </p>
+  <p>
+    <strong>Comuna:</strong>
+    <%= user.comuna %>    
+  </p>
+  <p>
+    <strong>UBCH:</strong>
+    <%= user.ubch %>
+  </p>
+  <p>
+    <strong>Comunidad:</strong>
+    <%= user.community %>
+  </p>
 </div>

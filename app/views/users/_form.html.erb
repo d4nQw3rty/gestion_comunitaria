@@ -15,6 +15,11 @@
     <%= form.label :name, "Nombre", style: "display: block" %>
     <%= form.text_field :name %>
   </div>
+  
+  <%= form.label :state_id %>
+  <%= form.select :state_id, options_from_collection_for_select(State.all, :id, :state_name) %> 
+
+
     <div>
     <%= form.label :comuna, "Comuna", style: "display: block" %>
     <%= form.text_field :comuna %>

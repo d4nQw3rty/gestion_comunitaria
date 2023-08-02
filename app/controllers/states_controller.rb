@@ -3,16 +3,19 @@ class StatesController < ApplicationController
 
   # GET /states or /states.json
   def index
+    @user = current_user
     @states = State.all
   end
 
   # GET /states/1 or /states/1.json
   def show
+    @user = current_user
   end
 
   # GET /states/new
   def new
     @state = State.new
+    @user = current_user
   end
 
   # GET /states/1/edit
