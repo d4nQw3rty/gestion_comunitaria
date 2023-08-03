@@ -1,14 +1,25 @@
-<p style="color: green"><%= notice %></p>
+<div class="rounded-5 container text-bg-light p-3">
 
-<h1>States</h1>
+<h2 class='text-center'>Jefes de Hogares: <%= @count %></h2>
 
-<div id="states">
-  <% @states.each do |state| %>
-    <%= render state %>
-    <p>
-      <%= link_to "Show this state", state %>
-    </p>
-  <% end %>
+<div id="states" class="overflow">
+<table class="table table-striped">
+  <thead>
+    <tr>      
+      <th scope="col">id</th>
+      <th scope="col">Estado</th>
+      <th scope="col">Editar</th>
+      <th scope="col">Ciudades</th>
+      <th scope="col">Eliminar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @states.each do |state| %>
+      <%= render state %>   
+    <% end %>
+  </tbody>
+</table>
+</div>
+<%= link_to "New state", new_state_path %>
 </div>
 
-<%= link_to "New state", new_state_path %>
