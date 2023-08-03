@@ -4,12 +4,14 @@ class CitiesController < ApplicationController
   # GET /cities or /cities.json
   def index
     @user = current_user
-    @cities = City.all
+    @state = State.find(params[:state_id])
+    @cities = City.includes(:state).where(state_id: @state.id)
   end
 
   # GET /cities/1 or /cities/1.json
   def show
     @user = current_user
+    @state = State.find(params[:state_id])
   end
 
   # GET /cities/new
@@ -21,6 +23,8 @@ class CitiesController < ApplicationController
 
   # GET /cities/1/edit
   def edit
+    @user = current_user
+    
   end
 
   # POST /cities or /cities.json
@@ -40,9 +44,10 @@ class CitiesController < ApplicationController
 
   # PATCH/PUT /cities/1 or /cities/1.json
   def update
+    @user = current_user
     respond_to do |format|
       if @city.update(city_params)
-        format.html { redirect_to city_url(@city), notice: "City was successfully updated." }
+        format.html { redirect_to state_url(@city.state), notice: "City was successfully updated." }
         format.json { render :show, status: :ok, location: @city }
       else
         format.html { render :edit, status: :unprocessable_entity }

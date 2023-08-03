@@ -4,7 +4,7 @@ class StatesController < ApplicationController
   # GET /states or /states.json
   def index
     @user = current_user
-    @states = State.all
+    @states = State.all    
   end
 
   # GET /states/1 or /states/1.json
@@ -20,10 +20,11 @@ class StatesController < ApplicationController
 
   # GET /states/1/edit
   def edit
+    @user = current_user
   end
 
   # POST /states or /states.json
-  def create
+  def create  
     @state = State.new(state_params)
 
     respond_to do |format|

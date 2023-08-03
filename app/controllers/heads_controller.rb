@@ -18,12 +18,14 @@ class HeadsController < ApplicationController
 
   # GET /heads/1 or /heads/1.json
   def show
+    @user = current_user
     @heads = Head.includes(:user).where(user_id: current_user.id)
     @members = Member.includes(:head).where(head_id: @head.id)  
   end
 
   # GET /heads/new
   def new
+    @user = current_user
     @head = Head.new
     @social_aids = SocialAid.all
   end
