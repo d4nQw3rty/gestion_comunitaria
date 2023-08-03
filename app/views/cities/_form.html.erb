@@ -17,8 +17,7 @@
   </div>
 
    <div>
-    <%= form.label :state_id, style: "display: block" %>
-    <%= form.collection_select :state_id, State.all, :id, :state_name %>
+    <%= form.hidden_field :state_id, value: params[:state_id] %>
   </div>
 
   <div>
