@@ -1,12 +1,17 @@
-<div id="<%= dom_id city %>">
-  <p>
-    <strong>Ciudad:</strong>
+<tr id="<%= dom_id city %>">
+  <td>    
+    <%= city.id %>
+  </td>
+
+  <td>
     <%= city.name %>
-  </p>
+  </td>
+   <td>
+    <%= link_to "Editar", edit_city_path(city, state_id: city.state.id) %>
+  </td>  
 
-  <p>
-    <strong>Estado:</strong>
-    <%= city.state.state_name %>
-  </p>
+  <td>
+  <%= button_to "Eliminar", city, method: :delete, data: {"turbo-confirm": '¿Quieres eliminar éste Estado?'} , class: "btn btn-danger" %>
+  </td>
 
-</div>
+</tr>
