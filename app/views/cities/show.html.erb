@@ -4,7 +4,7 @@
 
 <div>
   <%= link_to "Edit this city", edit_city_path(@city) %> |
-  <%= link_to "Back to cities", cities_path %>
+  <%= link_to "Back to cities", cities_path(state_id: @city.state.id) %>
 
   <%= button_to "Destroy this city", @city, method: :delete %>
 </div>
