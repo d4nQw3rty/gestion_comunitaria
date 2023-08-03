@@ -1,14 +1,26 @@
-<p style="color: green"><%= notice %></p>
-
 <h1>Ciudades</h1>
 
-<div id="cities">
-  <% @cities.each do |city| %>
-    <%= render city %>
-    <p>
-      <%= link_to "Show this city", city %>
-    </p>
-  <% end %>
+<div class="rounded-5 container text-bg-light p-3">
+
+<h2 class='text-center'>Estado: <%= @state.state_name %></h2>
+
+<div id="cities" class="overflow">
+<table class="table table-striped">
+  <thead>
+    <tr>      
+      <th scope="col">id</th>
+      <th scope="col">Ciudad</th>
+      <th scope="col">Editar</th>      
+      <th scope="col">Eliminar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @cities.each do |city| %>
+      <%= render city %>   
+    <% end %>
+  </tbody>
+</table>
 </div>
 
-<%= link_to "New city", new_city_path %>
+  <%= link_to "New city", new_city_path(state_id: @state.id) %>
+</div>
